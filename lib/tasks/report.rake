@@ -5,7 +5,6 @@ namespace :report do
   desc "Generate authenticate token in database"
 
   task call: :environment do
-    # Define the path to your dataset
     dataset_path = "./transactional-sample.csv"
 
     # Initialize arrays to store data
@@ -57,8 +56,8 @@ namespace :report do
     inconsistent_user_agents = user_agents.select { |_, count| count > 1 }
 
     # Time Patterns: Identify unusual patterns in transaction times
-    transaction_hours = transaction_dates.map { |date| date.strftime("%D") }
-    suspicious_hours = transaction_hours.tally.select { |hour, count| count > (total_transactions / 24) * 2 }
+    transaction_dates = transaction_dates.map { |date| date.strftime("%D") }
+    suspicious_dates = transaction_dates.tally.select { |date, count| count > (total_transactions / 24) * 2 }
 
     # Present conclusions
     puts "Basic Analysis:"
@@ -87,7 +86,7 @@ namespace :report do
     inconsistent_user_agents.each { |device, count| puts "Device: #{device}, Count: #{count}" }
 
     puts "\nTime Patterns:"
-    puts "Unusual transaction hours:"
-    suspicious_hours.each { |hour, count| puts "Hour: #{hour}, Transaction Count: #{count}" }
+    puts "Unusual transaction dates:"
+    suspicious_dates.each { |date, count| puts "Date: #{date}, Transaction Count: #{count}" }
   end
 end
