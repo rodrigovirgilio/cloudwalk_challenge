@@ -49,7 +49,7 @@ COPY --from=build /rails /rails
 # Run and own only the runtime files as a non-root user for security
 RUN useradd postgres --create-home --shell /bin/bash && \
     chown -R postgres:postgres db log storage tmp
-USER root:root
+USER postgres:postgres
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
