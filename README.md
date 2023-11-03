@@ -78,10 +78,9 @@ curl --request POST \
 ```
 
 #### 201 - Created
-
-
-#### 401 - Unauthorized
+![Screenshot 2023-11-03 at 10 42 38](https://github.com/rodrigovirgilio/cloudwalk_challenge/assets/392677/bae6e369-81d7-4e03-8504-a89da6cbdd5a)
 
 
 #### 422 - Unprocessable Entity
+![Screenshot 2023-11-03 at 10 42 55](https://github.com/rodrigovirgilio/cloudwalk_challenge/assets/392677/1b15108b-41e9-4535-a375-f53cf09152cb)
 
