@@ -4,7 +4,7 @@ services:
   web:
     build: .
     working_dir: /cloudwalk_challenge
-    command: bash -c "bundle exec rails s"
+    command: bash -c "bundle exec rails s && bundle exec rails db:create db:migrate"
     env_file:
       - ".env"
     ports:
